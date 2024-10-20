@@ -34,7 +34,7 @@ export const compileModule = async (filePath) => {
   console.log(moduleData); // todo: REMOVE THIS LINE
 
   if (moduleData) {
-    cliUtils.log("Log: Compiled", filePath, "Successfully!");
+    cliUtils.log("Log: Compiled Module:", filePath);
   } else {
     cliUtils.error("Error: Could not Compile Module:", filePath);
   }
