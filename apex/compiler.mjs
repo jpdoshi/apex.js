@@ -1,13 +1,30 @@
 import cliUtils from "./cli.mjs";
-import { readFile } from "fs/promises";
+import fs from "fs";
 
 const readModule = async (filePath) => {
   try {
-    const data = await readFile(filePath, "utf-8");
-    return data;
+    let data = "";
+    return new Promise((resolve, reject) => {
+      const reader = fs.createReadStream(filePath, {
+        encoding: "utf-8",
+        highWaterMark: 64, // 64 Bytes
+      });
+
+      reader.on("data", (chunk) => {
+        data += chunk;
+      });
+
+      reader.on("end", () => {
+        resolve(data);
+      });
+
+      reader.on("error", (error) => {
+        reject(error);
+      });
+    });
   } catch (error) {
     cliUtils.error(error);
-    return;
+    throw error;
   }
 };
 
