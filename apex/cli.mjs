@@ -16,11 +16,17 @@ const info = (...message) => {
   console.info(chalk.cyan(...message));
 };
 
+const clear = (...logs) => {
+  console.clear();
+  console.log(chalk.white(...logs));
+};
+
 const cliUtils = {
   log,
   error,
   warn,
   info,
+  clear,
 };
 
 export default cliUtils;

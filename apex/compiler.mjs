@@ -7,10 +7,18 @@ const readModule = async (filePath) => {
     return data;
   } catch (error) {
     cliUtils.error(error);
+    return;
   }
 };
 
 export const compileModule = async (filePath) => {
-  console.log(await readModule(filePath));
-  cliUtils.log("compiled", filePath);
+  const moduleData = await readModule(filePath);
+
+  console.log(moduleData); // todo: REMOVE THIS LINE
+
+  if (moduleData) {
+    cliUtils.log("Log: Compiled", filePath, "Successfully!");
+  } else {
+    cliUtils.error("Error: Could not Compile Module:", filePath);
+  }
 };
