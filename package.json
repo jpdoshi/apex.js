@@ -2,11 +2,11 @@
   "name": "apex",
   "version": "1.0.0",
   "description": "A frontend framework, that truly makes your work easy",
-  "main": "index.ts",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./index"
+    "start": "node index"
   },
   "keywords": [
     "apex.js",

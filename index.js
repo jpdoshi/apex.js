@@ -1,1 +1,4 @@
-console.log("Hello, Apex!");
+import Apex from "./apex/index.mjs";
+const entryPoint = "./src/App.apex";
+
+Apex.setup(entryPoint);
