@@ -1,11 +1,13 @@
 import { compileModule } from "./compiler.mjs";
+import { bundleModules } from "./bundler.mjs";
 
-const setup = (entryPoint) => {
-  compileModule(entryPoint);
+const build = async (entryPoint) => {
+  await compileModule(entryPoint);
+  await bundleModules();
 };
 
 const Apex = {
-  setup,
+  build,
 };
 
 export default Apex;
