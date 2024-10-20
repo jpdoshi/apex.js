@@ -1,19 +1,22 @@
+import { copyFile, readFile, writeFile } from "fs/promises";
+
 import cliUtils from "./cli.mjs";
-import { readFile } from "fs/promises";
+import config from "../apex.config.js";
+import CleanCSS from "clean-css";
 
-export const bundleModules = async (compiledTemplate, baseTemplate) => {
-  const templateData = await readFile(baseTemplate, "utf-8");
+export const bundleModules = async () => {
+  const { baseDir } = config;
 
-  console.log(templateData); // todo: REMOVE THIS LINE
+  // copy index html to dist/
+  await copyFile(baseDir + "index.html", baseDir + "dist/index.html");
 
-  /* todo */
-  // insert compiledTemplate to baseTemplate
-  // minify new template
-  // generate html file
+  // minify global CSS
+  const globalStyles = (
+    await readFile(baseDir + "global.styles.css", "utf-8")
+  ).toString();
 
-  if (templateData) {
-    cliUtils.log("Log: Generated bundle files");
-  } else {
-    cliUtils.error("Error: Could not read template");
-  }
+  const minifedStyles = new CleanCSS().minify(globalStyles).styles;
+  await writeFile(baseDir + "dist/global.styles.css", minifedStyles);
+
+  cliUtils.log("Log: Generated bundle files"); // todo: REMOVE THIS LINE
 };

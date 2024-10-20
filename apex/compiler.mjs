@@ -33,9 +33,9 @@ export const compileModule = async (filePath) => {
 
   /* todo */
   // tokenize moduleData
-  // generate html template from tokens
+  // generate template from tokens
   // attach scripts and styles
-  // return generated html template
+  // return template
 
   if (moduleData) {
     // todo: check `if` compilation doesn't throw errors
