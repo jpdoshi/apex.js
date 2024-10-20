@@ -31,10 +31,16 @@ const readModule = async (filePath) => {
 export const compileModule = async (filePath) => {
   const moduleData = await readModule(filePath);
 
-  console.log(moduleData); // todo: REMOVE THIS LINE
+  /* todo */
+  // tokenize moduleData
+  // generate html template from tokens
+  // attach scripts and styles
+  // return generated html template
 
   if (moduleData) {
+    // todo: check `if` compilation doesn't throw errors
     cliUtils.log("Log: Compiled Module:", filePath);
+    return moduleData; // todo: return compiled template here
   } else {
     cliUtils.error("Error: Could not Compile Module:", filePath);
   }
