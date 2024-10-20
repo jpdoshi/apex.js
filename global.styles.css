@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg-color: #fafafa;
+  --text: #212121;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text);
+}
+
+p {
+  font-size: 16px;
+  letter-spacing: 0.34;
+  line-height: 1.67;
+}
+
+a {
+  color: var(--text);
+}
