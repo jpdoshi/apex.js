@@ -1,11 +1,11 @@
-<Module>
+<cjs>
   console.log("Hello, Console!");
-</Module>
+</cjs>
 
-<Apex>
+<page>
   <h1>Hello, Apex!</h1>
-</Apex>
+</page>
 
-<Styles>
+<css>
 
-</Styles>
+</css>

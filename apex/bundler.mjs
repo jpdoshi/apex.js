@@ -7,8 +7,8 @@ import CleanCSS from "clean-css";
 export const bundleModules = async () => {
   const { baseDir } = config;
 
-  // copy index html to dist/
-  await copyFile(baseDir + "index.html", baseDir + "dist/index.html");
+  /* todo */
+  // generate minifed client script
 
   // minify global CSS
   const globalStyles = (
